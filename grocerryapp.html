@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>Grocery List App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      .container-xxl {
+        /* border: 2px solid black; */
+      }
+      .container {
+        /* border: 2px solid red; */
+        padding-top: 5%;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .bi-cart4 {
+        font-size: 2rem;
+      }
+      .btn-square {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-xxl text-center">
+      <div class="container">
+        <i class="bi bi-cart4"></i>
+        <h1>Grocery App</h1>
+
+        <form id="groceryForm">
+          <div class="row">
+            <div class="col-11">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="item"
+                  required
+                  value=""
+                  id="input"
+                />
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="form-group">
+                <button class="btn btn-primary" type="submit">Add</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div id="itemcount"></div>
+
+        <div class="container">
+          <div class="container list">
+            <table class="table w-100 align-middle">
+              <tbody id="listelement"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
