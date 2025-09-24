@@ -9,7 +9,6 @@ export const getAllItemsFromBasketService=async()=>{
     }
     catch(error){
         console.log("Error fetching data")
-        connection.release();
     }
     finally{
         connection.release();
@@ -22,12 +21,38 @@ export const addItemsToBasketService=async(itemsData)=>{
     const query="INSERT INTO groceryapp (item,quantity) VALUES ($1,$2) RETURNING *"
     try{
         const result=await connection.query(query,[item,quantity]);
-        console.log(result)
         return result.rows[0];
     }
     catch(error){
         console.log("Error inserting data")
+    }
+    finally{
         connection.release();
+    }
+}
+
+export const deleteItemsFromBasketService=async(id)=>{
+    const connection= await pool.connect();
+    const query="DELETE FROM groceryapp WHERE id = $1 RETURNING *"
+    try{
+        const result=await connection.query(query,[id]);
+    }
+    catch(error){
+        console.log("Error deleting data",id)
+    }
+    finally{
+        connection.release();
+    }
+}
+
+export const editItemsService=async(id)=>{
+    const connection= await pool.connect();
+    const query="DELETE FROM groceryapp WHERE id = $1 RETURNING *"
+    try{
+        const result=await connection.query(query,[id]);
+    }
+    catch(error){
+        console.log("Error deleting data",id)
     }
     finally{
         connection.release();
