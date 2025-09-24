@@ -4,7 +4,7 @@ document.addEventListener('submit',(e)=>{
     formelm=document.querySelector('#groceryform')
     e.preventDefault();
     const formdata=new FormData(formelm);
-    let returnedObj=creatObj(formdata)
+    let returnedObj=createObj(formdata)
     let dublicateStatus=dublicateItemManager(returnedObj)
     if(!dublicateStatus)
     {
@@ -68,13 +68,13 @@ function renderList(){
       itemCountElm.innerHTML=itemCountString
     }
     else{
-      itemCountElm.innerHTML=`Your have added total ${totalQty} items and total ${listArray.length} products`
+      itemCountElm.innerHTML=`Your have added total <strong>${totalQty}</strong> items and total <strong>${listArray.length}</strong> products`
     }
     
 }
 
 
-function creatObj(formdata){
+function createObj(formdata){
     let itemname=formdata.get('item')
     let dataObj={
         'name':itemname,
