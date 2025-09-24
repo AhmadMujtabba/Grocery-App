@@ -1,4 +1,7 @@
-import { getAllItemsFromBasketService,addItemsToBasketService,deleteItemsFromBasketService
+import { getAllItemsFromBasketService,
+    addItemsToBasketService,
+    deleteItemsFromBasketService,
+    editItemsQuantityService
  } from "../services/basketServices.js";
 
 
@@ -16,6 +19,11 @@ export const addItemsToBasket=async(req,res)=>{
 export const deleteItemsFromBasket=async(req,res)=>{
     const items=await deleteItemsFromBasketService(req.params.id);
     handleresponse(res,200,"Data Deleted !!!",items)
+}
+
+export const editItemsQuantity=async(req,res)=>{
+    const items=await editItemsQuantityService(req.params.id,req.body.quantity);
+    handleresponse(res,200,"Data Updated Successfuly", items)
 }
 
 const handleresponse=(res,status,message,data=null)=>{

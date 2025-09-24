@@ -45,14 +45,17 @@ export const deleteItemsFromBasketService=async(id)=>{
     }
 }
 
-export const editItemsService=async(id)=>{
+export const editItemsQuantityService=async(id,newValue)=>{
     const connection= await pool.connect();
-    const query="DELETE FROM groceryapp WHERE id = $1 RETURNING *"
+    const query="UPDATE groceryapp SET quantity = $1 WHERE id = $2 RETURNING *"
     try{
-        const result=await connection.query(query,[id]);
+        console.log("inside try",newValue)
+        const result=await connection.query(query,[newValue,id]);
+        return result.rows[0]
     }
     catch(error){
-        console.log("Error deleting data",id)
+        console.log("inside catch",newValue)
+        console.log("Error updating data",id)
     }
     finally{
         connection.release();
