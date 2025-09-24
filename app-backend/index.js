@@ -1,10 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
+import { createListTable } from "./data/createListTable.js";
 
 dotenv.config();
 const app=express();
 const port = process.env.PORT;
-
+createListTable();
 app.get('/',(req,res)=>{
     res.send('Response Coming')
 })
